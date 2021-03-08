@@ -1,0 +1,46 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+
+.furniture-list {
+  list-style: none;
+  margin: auto;
+  width: 75%;
+}
+
+.furniture-list li {
+  display: inline-block;
+  width: 600px;
+  margin: 20px;
+}
+
+.card {
+  width: 100%;
+}
+
+.furniture-image {
+  width: 250px;
+  height: 250px;
+}
+
+.banner {
+  width: 100%;
+  height: 600px;
+}
+
+.title {
+  color: white;
+  text-align: center;
+  position: relative;
+  top: 20%;
+}
+.title-back {
+  position: absolute;
+  top: 200px;
+  left: 350px;
+  width: 800px;
+  height: 75px;
+  background-color: rgba($color: #000, $alpha: 0.7);
+}

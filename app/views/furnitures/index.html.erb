@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<ul class="furniture-list">
+  <% @furnitures.each do |furniture| %>
+    <li class="furniture-title">
+      <div class="card mb-3">
+        <div class="row g-0">
+          <div class="col-md-5">
+            <% if furniture.image.attached? %>
+              <%= image_tag furniture.image, class: "furniture-image" %>
+            <% else %>
+              <%= image_tag 'no_photo.png', class: "furniture-image" %>
+            <% end %>
+          </div>
+          <div class="col-md-7">
+            <div class="card-body">
+              <h5 class="card-title"><%=furniture.name%></h5>
+              <p class="card-text"><%=furniture.description%></p>
+              <%= button_to "Подробнее", furniture_path(furniture), method: :get, class: "btn btn-primary" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+  <% end %>
+</ul>
+  
+<br>
+
+<%= link_to 'New Furniture', new_furniture_path %>
