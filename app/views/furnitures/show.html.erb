@@ -1,39 +1,56 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @furniture.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @furniture.description %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @furniture.price %>
-</p>
-
-<p>
-  <strong>Width:</strong>
-  <%= @furniture.width %>
-</p>
-
-<p>
-  <strong>Height:</strong>
-  <%= @furniture.height %>
-</p>
-
-<p>
-  <strong>Manufacturer:</strong>
-  <%= @furniture.manufacturer_id %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @furniture.category_id %>
-</p>
-
-<%= link_to 'Edit', edit_furniture_path(@furniture) %> |
-<%= link_to 'Back', furnitures_path %>
+<div class="card-show">
+  <% if @furniture.image.attached? %>
+    <%= image_tag @furniture.image, class: "image-show" %>
+  <% else %>
+    <%= image_tag 'no_photo.png', class: "furniture-image" %>
+  <% end %>
+  <div class="card-body">
+    <p class="card-title">
+      <strong>Имя:</strong>
+      <%= @furniture.name %>
+    </p>
+    <p class="card-text">
+      <strong>Описание:</strong>
+      <%= @furniture.description %>
+    </p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+      <strong>ID:</strong>
+      <%= @furniture.id %>
+    </li>
+    <li class="list-group-item">
+      <strong>Цена:</strong>
+      <%= @furniture.price %>
+    </li>
+    <li class="list-group-item">
+      <strong>Ширина:</strong>
+      <%= @furniture.width %>
+    </li>
+    <li class="list-group-item">
+      <strong>Высота:</strong>
+      <%= @furniture.height %>
+    </li>
+    <li class="list-group-item">
+      <strong>Производитель:</strong>
+      <%= Manufacturer.find(@furniture.manufacturer_id).name %>
+    </li>
+    <li class="list-group-item">
+      <strong>Категория:</strong>
+      <%= Category.find(@furniture.category_id).name %>
+    </li>
+  </ul>
+  <div class="card-body">
+    <%= link_to 'Отправить заявку', new_order_path, class: "btn btn-primary" %>
+  </div>
+  <% if current_user %>
+    <% if current_user.has_role? :admin%>
+      <div class="card-body">
+        <%= link_to 'Редактировать', edit_furniture_path(@furniture), class: "btn btn-primary" %>
+        <%= link_to 'Назад', furnitures_path, class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  <% end %>
+</div>

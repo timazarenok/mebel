@@ -1,13 +1,19 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, only: %i[ index new ]
 
   # GET /orders or /orders.json
   def index
-    @orders = Order.all
+    if current_user.has_role? :admin 
+      @orders = Order.all
+    else 
+      @orders = Order.where(user_id: current_user.id)
+    end
   end
 
   # GET /orders/1 or /orders/1.json
   def show
+    @furniture = Furniture.find(@order.furniture_id)
   end
 
   # GET /orders/new
@@ -21,7 +27,9 @@ class OrdersController < ApplicationController
 
   # POST /orders or /orders.json
   def create
-    @order = Order.new(order_params)
+    @order = Order.new
+    @order.user = current_user
+    @order.furniture_id = order_params[:furniture_id]
 
     respond_to do |format|
       if @order.save
@@ -64,6 +72,6 @@ class OrdersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def order_params
-      params.require(:order).permit(:user_id, :date)
+      params.require(:order).permit(:date, :furniture_id)
     end
 end

@@ -11,7 +11,17 @@
   <div class="nav-item">
     <%= link_to 'Заказы', orders_path, class: 'nav-link' %>
   </div>
-  <% if current_user   %>
+  <% if current_user %>
+    <% if current_user.has_role? :admin  %>
+      <div class="nav-item">
+        <%= link_to 'Категории', categories_path, class: 'nav-link' %>
+      </div>
+      <div class="nav-item">
+        <%= link_to 'Производители', manufacturers_path, class: 'nav-link' %>
+      </div>
+    <% end %>
+  <%end%>
+  <% if current_user  %>
     <div class="nav-item">
       <%= link_to 'Выйти', destroy_user_session_path, method: :delete, class: 'nav-link' %>
     </div>

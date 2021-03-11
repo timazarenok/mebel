@@ -2,9 +2,9 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def after_sign_in_path_for(_resource)
-    return admin_root_path if current_user.admin?
+    return root_path if current_user.has_role? :admin
 
-    user_root_path
+    root_path
   end
 
   def after_sign_out_path_for(_resource_or_scope)

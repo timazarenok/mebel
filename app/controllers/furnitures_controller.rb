@@ -4,6 +4,10 @@ class FurnituresController < ApplicationController
   # GET /furnitures or /furnitures.json
   def index
     @furnitures = Furniture.all
+    @search_results = Furniture.search(params[:search])
+    if @search_results.empty?
+      @search_results = Furniture.all
+    end
   end
 
   # GET /furnitures/1 or /furnitures/1.json

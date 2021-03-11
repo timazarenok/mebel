@@ -37,3 +37,38 @@ a.link:hover {
   color: white;
   background-color: none;
 }
+
+form {
+  position: relative;
+  width: 25%;
+  margin: auto;
+}
+
+.form-title {
+  position: relative;
+  width: 25%;
+  margin: auto;
+}
+
+.form-control {
+  margin: 10px 10px 10px 0px;
+  width: 250px;
+}
+
+.btn-danger {
+  position: relative;
+  left: 38%;
+  margin: 10px;
+}
+
+a.btn.btn-danger {
+  color: white;
+}
+
+a.btn.btn-primary {
+  color: white;
+}
+
+td {
+  font-size: 20px;
+}
