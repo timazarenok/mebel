@@ -29,7 +29,11 @@
               <h5 class="card-title"><%=furniture.name%></h5>
               <p class="card-text"><%=furniture.description%></p>
               <%= button_to "Подробнее", furniture_path(furniture), method: :get, class: "btn btn-primary" %>
-              <%= link_to 'Удалить', furniture, class: "btn btn-danger", method: :delete, data: { confirm: 'Вы уверены?' } %>
+              <%if current_user %>
+                <% if current_user.has_role? :admin%>
+                  <%= link_to 'Удалить', furniture, class: "btn btn-danger", method: :delete, data: { confirm: 'Вы уверены?' } %>
+                <% end %>
+              <% end %>
             </div>
           </div>
         </div>
