@@ -2,12 +2,20 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-
 .card-show {
   width: 80%;
   height: 100%;
   margin: auto;
-  
+}
+
+.furniture-page {
+  margin-top: 150px;
+}
+
+.card-title {
+  color: #9c6644 !important;
+  font-weight: bold;
+  font-size: 20px;
 }
 
 .image-show {

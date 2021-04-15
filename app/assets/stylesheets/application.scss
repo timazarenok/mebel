@@ -16,14 +16,37 @@
 
 @import "bootstrap";
 
-a, .nav-link, a.nav-link {
-  color: black;
+a,
+.nav-link,
+a.nav-link {
+  color: white;
+  font-weight: bold;
   background-color: none;
 }
 
-a:hover, .nav-link:hover, a.nav-link:hover {
-  color: grey;
-  background-color: white;
+.table {
+  margin-top: 100px;
+}
+
+.table th {
+  color: #9c6644;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 101;
+  background-color: rgba($color: #ced4da, $alpha: 0.5);
+  width: 100%;
+  padding: 0 !important;
+}
+
+a:hover,
+.nav-link:hover,
+a.nav-link:hover {
+  color: white;
+  background-color: #9c6644;
 }
 
 a.link {
@@ -40,14 +63,20 @@ a.link:hover {
 
 form {
   position: relative;
-  width: 25%;
+  width: 55%;
   margin: auto;
+}
+
+.alert-danger {
+  z-index: 102;
 }
 
 .form-title {
   position: relative;
   width: 25%;
+  margin-bottom: 20px !important;
   margin: auto;
+  color: #9c6644;
 }
 
 .form-control {
@@ -55,10 +84,13 @@ form {
   width: 250px;
 }
 
+.form-label, label {
+  color: #9c6644;
+}
+
 .btn-danger {
   position: relative;
-  left: 38%;
-  margin: 10px;
+  margin: 0px;
 }
 
 a.btn.btn-danger {
@@ -67,12 +99,14 @@ a.btn.btn-danger {
 
 a.btn.btn-primary {
   color: white;
+  background-color: #9c6644 !important;
+}
+
+.btn-primary, .btn-furniture {
+  background-color: #9c6644 !important;
+  border: none !important;
 }
 
 td {
   font-size: 20px;
-}
-
-a.navbar-brand {
-  color: aquamarine
 }

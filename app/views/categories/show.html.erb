@@ -1,9 +1,11 @@
-<p id="notice"><%= notice %></p>
+<div class="furniture-page">
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Имя:</strong>
-  <%= @category.name %>
-</p>
+  <p>
+    <strong>Имя:</strong>
+    <%= @category.name %>
+  </p>
 
-<%= link_to 'Редактировать', edit_category_path(@category) %> |
-<%= link_to 'Назад', categories_path %>
+  <%= link_to 'Редактировать', edit_category_path(@category) %> |
+  <%= link_to 'Назад', categories_path, class: "btn btn-furniture" %>
+</div>

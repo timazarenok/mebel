@@ -1,30 +1,36 @@
 <div>
-  <%= image_tag 'mebel.jpg', class: "banner" %>
+  <%= image_tag 'mebel.jpeg', class: "banner" %>
   <div class="title-back">
-    <h1 class="title">Мебель на любой вкус</h1>
+    <h1 class="title">Диван — наша работа!</h1>
+    <h5 class="subtitle">Изначально диван — это замысел, 
+      который дизайнер воплощает в карандашном наброске. 
+      В конструкторском бюро эскиз превращается в цифровую модель, затем в процесс включается производство. 
+      Здесь, шаг за шагом, из отборной древесины, лучших наполнителей и тканей создаются наши диваны. Такие красивые, мягкие, стильные — разные.
+      И, как ведущий производитель, мы ежедневно доказываем, что российской мебели можно доверять.
+    </h5>
   </div>
 </div>
-<ul class="furniture-list">
-  <% @furnitures.each do |furniture| %>
-    <li class="furniture-title">
-      <div class="card mb-3">
-        <div class="row g-0">
-          <div class="col-md-5">
+<div class="second-block">
+  <ul class="furniture-list">
+    <% @furnitures.each do |furniture| %>
+      <li class="furniture-title">
+        <div class="card mb-3">
+          <div class="row g-0">
             <% if furniture.image.attached? %>
               <%= image_tag furniture.image, class: "furniture-image" %>
             <% else %>
               <%= image_tag 'no_photo.png', class: "furniture-image" %>
             <% end %>
           </div>
-          <div class="col-md-7">
+          <div class="row g-0">
             <div class="card-body">
               <h5 class="card-title"><%=furniture.name%></h5>
-              <p class="card-text"><%=furniture.description%></p>
-              <%= button_to "Подробнее", furniture_path(furniture), method: :get, class: "btn btn-primary" %>
-            </div>
+              <p class="card-title">Цена: <%=furniture.price%></p>
+              <%= button_to "Подробнее", furniture_path(furniture), method: :get, class: "btn btn-furniture" %>
+            </div>          
           </div>
         </div>
-      </div>
-    </li>
-  <% end %>
-</ul>
+      </li>
+    <% end %>
+  </ul>
+</div>
