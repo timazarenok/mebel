@@ -48,7 +48,7 @@
     <div class="col">
       <div class="field">
         <%= form.label :manufacturer_id, "ID Производителя", :class => "form-label" %>
-        <%= form.text_field :manufacturer_id, :class => "form-control" %>
+        <%= form.select :manufacturer_id, Manufacturer.all.map {|el| [el.name, el.id]}, {}, { class: "form-select" } %>
       </div>
     </div>
   </div>
@@ -57,7 +57,7 @@
     <div class="col">
       <div class="field">
         <%= form.label :category_id, "ID Категории", :class => "form-label" %>
-        <%= form.text_field :category_id, :class => "form-control" %>
+        <%= form.select :category_id, Category.all.map {|el| [el.name, el.id]}, {}, { class: "form-select" } %>
       </div>
     </div>
     <div class="col">

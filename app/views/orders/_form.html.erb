@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= form.label :furniture_id, "ID Товаара", :class => "form-label" %>
-    <%= form.number_field :furniture_id, :class => "form-control" %>
+    <%= form.select :furniture_id, Furniture.all.map {|el| [el.name, el.id]}, {}, { class: "form-select" } %>
   </div>
 
   <div class="field">
