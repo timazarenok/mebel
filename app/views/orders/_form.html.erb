@@ -11,14 +11,40 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :furniture_id, "ID Товаара", :class => "form-label" %>
-    <%= form.select :furniture_id, Furniture.all.map {|el| [el.name, el.id]}, {}, { class: "form-select" } %>
+  <div class="row">
+    <div class="col">
+      <div class="field">
+        <%= form.label :furniture_id, "ID Товаара", :class => "form-label" %>
+        <%= form.select :furniture_id, Furniture.all.map {|el| [el.name, el.id]}, {}, { class: "form-select" } %>
+      </div>
+    </div>
+    <div class="col">
+      <div class="field">
+        <%= form.label :date, "Дата", :class => "form-label" %>
+        <%= form.date_select :date, :class => "form-control" %>
+      </div>
+    </div>
+  </div>
+  
+
+  <div class="row">
+    <div class="col">
+      <div class="field">
+        <%= form.label :name, "Имя", :class => "form-label" %>
+        <%= form.text_field :name, :class => "form-control" %>
+      </div>
+    </div>
+    <div class="col">
+      <div class="field">
+        <%= form.label :address, "Адрес", :class => "form-label" %>
+        <%= form.text_field :address, :class => "form-control" %>
+      </div>
+    </div>
   </div>
 
   <div class="field">
-    <%= form.label :date, "Дата", :class => "form-label" %>
-    <%= form.date_select :date, :class => "form-control" %>
+    <%= form.label :telephone, "Телефон", :class => "form-label" %>
+    <%= form.text_field :telephone, :class => "form-control" %>
   </div>
 
   <div class="actions">
