@@ -48,6 +48,9 @@ a.nav-link:hover {
   color: white;
   background-color: #9c6644;
 }
+.navbar-brand:hover {
+  background-color: transparent !important;
+}
 
 a.link {
   text-decoration: none;
@@ -115,13 +118,16 @@ td {
   padding-left: 200px;
   padding-top: 20px;
   height: 25vh;
+  width: 100%;
   background-color: black;
 }
 
 .footer h3 {
   color: #9c6644;
+  margin: 0;
 }
 
 .footer a, span {
   color: white;
+  margin: 0;
 }
